@@ -80,10 +80,24 @@ bash deploy/tencentcloud/update-from-git.sh
 ```bash
 git add .
 git commit -m "Your change"
-git push origin main
+npm run deploy:tencentcloud:git
 ```
 
-### 服务器
+这条命令会自动完成：
+
+- 把当前分支推送到 `origin`
+- SSH 登录服务器
+- 在服务器执行 `deploy/tencentcloud/update-from-git.sh`
+
+前提条件：
+
+- 当前工作区没有未提交改动
+- 你已经完成本次改动的 `git commit`
+- 当前所在分支就是你要发布的分支
+
+### 服务器手动发布
+
+如果你需要跳过本地一键命令，仍然可以在服务器手动执行：
 
 ```bash
 cd /srv/judgewrite
@@ -97,19 +111,19 @@ bash deploy/tencentcloud/update-from-git.sh
 如果你要指定分支：
 
 ```bash
-DEPLOY_BRANCH=develop bash deploy/tencentcloud/update-from-git.sh
+DEPLOY_BRANCH=develop npm run deploy:tencentcloud:git
 ```
 
 如果你只想发布前端：
 
 ```bash
-DEPLOY_SERVICE=web bash deploy/tencentcloud/update-from-git.sh
+DEPLOY_SERVICE=web npm run deploy:tencentcloud:git
 ```
 
 如果你只想发布后端：
 
 ```bash
-DEPLOY_SERVICE=api bash deploy/tencentcloud/update-from-git.sh
+DEPLOY_SERVICE=api npm run deploy:tencentcloud:git
 ```
 
 ## 当前线上地址
