@@ -88,6 +88,7 @@ npm run deploy:tencentcloud:git
 - 把当前分支推送到 `origin`
 - SSH 登录服务器
 - 在服务器执行 `deploy/tencentcloud/update-from-git.sh`
+- 自动检查 `https://pawtrip.pet/judgewrite/` 页面和公网健康接口是否可访问
 
 前提条件：
 
@@ -124,6 +125,12 @@ DEPLOY_SERVICE=web npm run deploy:tencentcloud:git
 
 ```bash
 DEPLOY_SERVICE=api npm run deploy:tencentcloud:git
+```
+
+如果你想调整公网检查重试次数：
+
+```bash
+PUBLIC_CHECK_RETRIES=15 PUBLIC_CHECK_INTERVAL=2 npm run deploy:tencentcloud:git
 ```
 
 ## 当前线上地址

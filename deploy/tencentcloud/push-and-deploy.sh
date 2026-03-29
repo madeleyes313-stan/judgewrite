@@ -10,6 +10,9 @@ DEPLOY_PATH="${DEPLOY_PATH:-/srv/judgewrite}"
 DEPLOY_BRANCH="${DEPLOY_BRANCH:-$(git -C "${REPO_ROOT}" rev-parse --abbrev-ref HEAD)}"
 DEPLOY_SERVICE="${DEPLOY_SERVICE:-all}"
 DEPLOY_DOMAIN="${DEPLOY_DOMAIN:-https://pawtrip.pet/judgewrite/}"
+DEPLOY_PUBLIC_HEALTHCHECK_URL="${DEPLOY_PUBLIC_HEALTHCHECK_URL:-https://pawtrip.pet/judgewrite/api/health}"
+PUBLIC_CHECK_RETRIES="${PUBLIC_CHECK_RETRIES:-10}"
+PUBLIC_CHECK_INTERVAL="${PUBLIC_CHECK_INTERVAL:-3}"
 
 require_command() {
   if ! command -v "$1" >/dev/null 2>&1; then
@@ -52,6 +55,9 @@ git push origin "${DEPLOY_BRANCH}"
 
 echo "==> 远端执行发布"
 run_remote "cd '${DEPLOY_PATH}' && DEPLOY_BRANCH='${DEPLOY_BRANCH}' DEPLOY_SERVICE='${DEPLOY_SERVICE}' bash deploy/tencentcloud/update-from-git.sh"
+
+echo "==> 验证公网页面入口"
+run_remote "for attempt in \$(seq 1 '${PUBLIC_CHECK_RETRIES}'); do if curl -fsS '${DEPLOY_DOMAIN}' >/dev/null && curl -fsS '${DEPLOY_PUBLIC_HEALTHCHECK_URL}' >/dev/null; then echo '公网访问检查通过。'; break; fi; if [ \"\${attempt}\" -eq '${PUBLIC_CHECK_RETRIES}' ]; then echo '公网访问检查失败。'; exit 1; fi; echo '公网访问未通过，${PUBLIC_CHECK_INTERVAL} 秒后重试 ('\"\${attempt}\"'/'${PUBLIC_CHECK_RETRIES}')...'; sleep '${PUBLIC_CHECK_INTERVAL}'; done"
 
 echo
 echo "==> 一键发布完成"
