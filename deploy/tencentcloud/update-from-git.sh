@@ -5,6 +5,8 @@ PROJECT_DIR="${1:-/srv/judgewrite}"
 DEPLOY_BRANCH="${DEPLOY_BRANCH:-main}"
 DEPLOY_SERVICE="${DEPLOY_SERVICE:-all}"
 HEALTHCHECK_URL="${HEALTHCHECK_URL:-http://127.0.0.1:8081/api/health}"
+HEALTHCHECK_RETRIES="${HEALTHCHECK_RETRIES:-10}"
+HEALTHCHECK_INTERVAL="${HEALTHCHECK_INTERVAL:-3}"
 
 require_command() {
   if ! command -v "$1" >/dev/null 2>&1; then
@@ -56,7 +58,23 @@ echo "==> 当前容器状态"
 docker compose ps
 
 echo "==> 健康检查"
-curl -fsS "${HEALTHCHECK_URL}"
+for attempt in $(seq 1 "${HEALTHCHECK_RETRIES}"); do
+  if curl -fsS "${HEALTHCHECK_URL}"; then
+    echo
+    echo "健康检查通过。"
+    break
+  fi
+
+  if [ "${attempt}" -eq "${HEALTHCHECK_RETRIES}" ]; then
+    echo
+    echo "健康检查失败，已重试 ${HEALTHCHECK_RETRIES} 次。"
+    exit 1
+  fi
+
+  echo
+  echo "健康检查未通过，${HEALTHCHECK_INTERVAL} 秒后重试 (${attempt}/${HEALTHCHECK_RETRIES})..."
+  sleep "${HEALTHCHECK_INTERVAL}"
+done
 
 echo
 echo "发布完成。"
