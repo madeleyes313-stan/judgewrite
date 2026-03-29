@@ -59,6 +59,16 @@ run_remote "cd '${DEPLOY_PATH}' && DEPLOY_BRANCH='${DEPLOY_BRANCH}' DEPLOY_SERVI
 echo "==> 验证公网页面入口"
 run_remote "for attempt in \$(seq 1 '${PUBLIC_CHECK_RETRIES}'); do if curl -fsS '${DEPLOY_DOMAIN}' >/dev/null && curl -fsS '${DEPLOY_PUBLIC_HEALTHCHECK_URL}' >/dev/null; then echo '公网访问检查通过。'; break; fi; if [ \"\${attempt}\" -eq '${PUBLIC_CHECK_RETRIES}' ]; then echo '公网访问检查失败。'; exit 1; fi; echo '公网访问未通过，${PUBLIC_CHECK_INTERVAL} 秒后重试 ('\"\${attempt}\"'/'${PUBLIC_CHECK_RETRIES}')...'; sleep '${PUBLIC_CHECK_INTERVAL}'; done"
 
+echo "==> 生成发布摘要"
+REMOTE_COMMIT="$(run_remote "cd '${DEPLOY_PATH}' && git rev-parse --short HEAD")"
+REMOTE_DEPLOY_TIME="$(run_remote "date '+%Y-%m-%d %H:%M:%S %Z'")"
+HEALTH_SUMMARY="服务器内健康检查通过；公网入口与健康接口检查通过"
+
 echo
 echo "==> 一键发布完成"
 echo "访问地址: ${DEPLOY_DOMAIN}"
+echo
+echo "发布摘要"
+echo "- 当前线上提交号: ${REMOTE_COMMIT}"
+echo "- 发布时间: ${REMOTE_DEPLOY_TIME}"
+echo "- 健康检查结果: ${HEALTH_SUMMARY}"

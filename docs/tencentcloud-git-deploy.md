@@ -89,6 +89,7 @@ npm run deploy:tencentcloud:git
 - SSH 登录服务器
 - 在服务器执行 `deploy/tencentcloud/update-from-git.sh`
 - 自动检查 `https://pawtrip.pet/judgewrite/` 页面和公网健康接口是否可访问
+- 输出简短发布摘要：线上提交号、发布时间、健康检查结果
 
 前提条件：
 
