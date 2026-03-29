@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.DS_Store
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+coverage/
+*.egg-info/
+apps/api/.venv/
+deploy/tencentcloud/.env
+apps/api/.env
+apps/web/.env.production

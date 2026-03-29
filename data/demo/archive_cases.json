@@ -1,0 +1,102 @@
+[
+  {
+    "case_id": "case-ce7423cd",
+    "title": "原告张某诉称被告李某拖欠借款10 · 【答辩状.txt】",
+    "case_type": "民间借贷纠纷",
+    "style_profile": "张法官",
+    "updated_at": "2026-03-29 14:37:07 UTC",
+    "status": "已归档",
+    "training_enabled": true,
+    "source": "runtime"
+  },
+  {
+    "case_id": "case-238577b2",
+    "title": "原告张某诉称被告李某拖欠借款10 · 【答辩状.txt】",
+    "case_type": "民间借贷纠纷",
+    "style_profile": "张法官",
+    "updated_at": "2026-03-29 14:34:18 UTC",
+    "status": "已归档",
+    "training_enabled": true,
+    "source": "runtime"
+  },
+  {
+    "case_id": "case-52296ec7",
+    "title": "原告张某诉称被告李某拖欠借款10 · 【答辩状.txt】",
+    "case_type": "民间借贷纠纷",
+    "style_profile": "张法官",
+    "updated_at": "2026-03-29 13:58:08 UTC",
+    "status": "已归档",
+    "training_enabled": true,
+    "source": "runtime"
+  },
+  {
+    "case_id": "case-379a3a8b",
+    "title": "原告张某诉称被告李某拖欠借款10 · 【答辩状.txt】",
+    "case_type": "民间借贷纠纷",
+    "style_profile": "张法官",
+    "updated_at": "2026-03-29 13:55:33 UTC",
+    "status": "已归档",
+    "training_enabled": true,
+    "source": "runtime"
+  },
+  {
+    "case_id": "case-ceeca881",
+    "title": "原告张某诉称被告李某拖欠借款10 · 【答辩状.txt】",
+    "case_type": "民间借贷纠纷",
+    "style_profile": "张法官",
+    "updated_at": "2026-03-29 13:55:13 UTC",
+    "status": "已归档",
+    "training_enabled": true,
+    "source": "runtime"
+  },
+  {
+    "case_id": "case-f246637a",
+    "title": "原告张某诉称被告李某拖欠借款10 · 【答辩状.txt】",
+    "case_type": "民间借贷纠纷",
+    "style_profile": "张法官",
+    "updated_at": "2026-03-29 13:54:45 UTC",
+    "status": "已归档",
+    "training_enabled": true,
+    "source": "runtime"
+  },
+  {
+    "case_id": "case-48709d7a",
+    "title": "## 第1页 · 本次发行股票拟在科创板上市， 科",
+    "case_type": "待解析",
+    "style_profile": "待选择画像",
+    "updated_at": "2026-03-29 13:30:11 UTC",
+    "status": "已上传",
+    "training_enabled": true,
+    "source": "runtime"
+  },
+  {
+    "case_id": "case-49bff76e",
+    "title": "原告：张某 · 被告：李某",
+    "case_type": "民间借贷纠纷",
+    "style_profile": "张法官",
+    "updated_at": "2026-03-29 04:50:10 UTC",
+    "status": "已归档",
+    "training_enabled": true,
+    "source": "runtime"
+  },
+  {
+    "case_id": "#2024-CIV-0892",
+    "title": "张某诉科技公司民间借贷纠纷",
+    "case_type": "民间借贷纠纷",
+    "style_profile": "张法官",
+    "updated_at": "2025-10-12",
+    "status": "已归档",
+    "training_enabled": true,
+    "source": "seed"
+  },
+  {
+    "case_id": "#2024-CR-1104",
+    "title": "王某危险驾驶案量刑文书",
+    "case_type": "刑事审判",
+    "style_profile": "陈法官",
+    "updated_at": "2025-09-28",
+    "status": "已定稿",
+    "training_enabled": false,
+    "source": "seed"
+  }
+]

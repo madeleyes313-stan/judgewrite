@@ -1,0 +1,17 @@
+{
+  "style_id": "judge_zhang",
+  "judge_name": "张法官",
+  "tone": "克制、审慎、偏书面化",
+  "logic_structure": "先概括争点，再逐项论证，最后归纳结论",
+  "baseline_terms": [
+    "本院认为",
+    "结合在案证据",
+    "足以认定",
+    "据此"
+  ],
+  "writing_habit": "重视先归纳争议焦点，再分别说明证据采信与法律适用。",
+  "preferred_case_types": [
+    "民间借贷纠纷",
+    "物业服务合同纠纷"
+  ]
+}

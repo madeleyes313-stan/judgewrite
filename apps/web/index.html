@@ -1,0 +1,90 @@
+<!doctype html>
+<html class="light" lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>文书辅助生成助手</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              error: "#ba1a1a",
+              "on-error": "#ffffff",
+              "tertiary-container": "#3e2700",
+              "surface-variant": "#e0e3e6",
+              "primary-container": "#1a2b4b",
+              "on-primary-fixed-variant": "#364768",
+              "inverse-surface": "#2d3133",
+              "on-secondary-fixed-variant": "#005048",
+              "on-tertiary": "#ffffff",
+              "on-tertiary-fixed-variant": "#5d4217",
+              "on-secondary-container": "#007165",
+              "error-container": "#ffdad6",
+              "on-error-container": "#93000a",
+              "on-primary": "#ffffff",
+              "on-secondary": "#ffffff",
+              outline: "#75777f",
+              "on-primary-container": "#8293b8",
+              background: "#f7f9fc",
+              "inverse-on-surface": "#eff1f4",
+              tertiary: "#231400",
+              "on-background": "#191c1e",
+              "surface-tint": "#4e5e81",
+              "on-secondary-fixed": "#00201c",
+              secondary: "#006b5f",
+              "primary-fixed": "#d8e2ff",
+              "primary-fixed-dim": "#b6c6ef",
+              "outline-variant": "#c5c6cf",
+              "on-surface": "#191c1e",
+              "on-tertiary-fixed": "#291800",
+              "secondary-container": "#8df5e4",
+              primary: "#031635",
+              "surface-container": "#eceef1",
+              "surface-dim": "#d8dadd",
+              "surface-bright": "#f7f9fc",
+              "tertiary-fixed": "#ffddb1",
+              "surface-container-low": "#f2f4f7",
+              "surface-container-highest": "#e0e3e6",
+              "inverse-primary": "#b6c6ef",
+              "surface-container-high": "#e6e8eb",
+              "secondary-fixed-dim": "#70d8c8",
+              "on-surface-variant": "#44474e",
+              "secondary-fixed": "#8df5e4",
+              "on-primary-fixed": "#081b3a",
+              "tertiary-fixed-dim": "#e8c08a",
+              "on-tertiary-container": "#b08d5b",
+              surface: "#f7f9fc",
+              "surface-container-lowest": "#ffffff",
+            },
+            fontFamily: {
+              headline: ["Manrope", "sans-serif"],
+              body: ["Inter", "sans-serif"],
+              label: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-background font-body text-on-background antialiased">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

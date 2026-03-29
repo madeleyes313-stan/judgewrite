@@ -1,0 +1,16 @@
+{
+  "style_id": "judge_chen",
+  "judge_name": "陈法官",
+  "tone": "简洁、直接、结论导向",
+  "logic_structure": "先固定案件事实，再快速归结争点与结论",
+  "baseline_terms": [
+    "经审查",
+    "可以认定",
+    "依法应予支持",
+    "本院确认"
+  ],
+  "preferred_case_types": [
+    "机动车交通事故责任纠纷",
+    "婚姻家庭纠纷"
+  ]
+}

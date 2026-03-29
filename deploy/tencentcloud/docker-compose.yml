@@ -1,0 +1,40 @@
+services:
+  api:
+    build:
+      context: ../..
+      dockerfile: apps/api/Dockerfile
+    environment:
+      JUDGEWRITE_DATA_DIR: /app/data/runtime
+      JUDGEWRITE_CORS_ORIGINS: ${JUDGEWRITE_CORS_ORIGINS:-*}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_BASE_URL: ${OPENAI_BASE_URL:-}
+      OPENAI_MODEL: ${OPENAI_MODEL:-gpt-4.1-mini}
+    volumes:
+      - judgewrite_data:/app/data/runtime
+    restart: unless-stopped
+
+  web:
+    build:
+      context: ../..
+      dockerfile: apps/web/Dockerfile
+      args:
+        VITE_API_BASE_URL: ${VITE_API_BASE_URL:-}
+        VITE_BASE_PATH: ${VITE_BASE_PATH:-/}
+    depends_on:
+      - api
+    ports:
+      - "${WEB_BIND_HOST:-0.0.0.0}:${WEB_PORT:-80}:80"
+    networks:
+      default:
+      pawtrip_gateway:
+        aliases:
+          - judgewrite-web
+    restart: unless-stopped
+
+volumes:
+  judgewrite_data:
+
+networks:
+  pawtrip_gateway:
+    external: true
+    name: ${PAWTRIP_GATEWAY_NETWORK:-pawtripserver_default}

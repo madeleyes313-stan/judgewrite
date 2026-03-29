@@ -1,0 +1,14 @@
+{
+  "name": "judgewrite-workspace",
+  "private": true,
+  "workspaces": [
+    "apps/web"
+  ],
+  "scripts": {
+    "web:dev": "npm --workspace apps/web run dev --",
+    "web:build": "npm --workspace apps/web run build",
+    "web:e2e": "npm --workspace apps/web run test:e2e",
+    "deploy:tencentcloud": "bash \"deploy/tencentcloud/publish.sh\"",
+    "deploy:tencentcloud:git": "echo \"先 git push 到远端仓库，再在服务器执行 bash deploy/tencentcloud/update-from-git.sh\""
+  }
+}

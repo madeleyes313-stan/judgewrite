@@ -1,0 +1,11 @@
+{
+  "default_style_id": "judge_zhang",
+  "default_export_format": "Word",
+  "auto_save": true,
+  "segmented_generation": true,
+  "encryption_enabled": true,
+  "audit_log_days": 90,
+  "rag_enabled": true,
+  "ocr_mode": "文本层优先",
+  "openai_enabled": false
+}
