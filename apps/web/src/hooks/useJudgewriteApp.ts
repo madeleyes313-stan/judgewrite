@@ -184,9 +184,8 @@ export function useJudgewriteApp() {
         const defaultStyle = stylesPayload.find((item) => item.style_id === settingsPayload.default_style_id) ?? stylesPayload[0];
         setSelectedStyleId(defaultStyle.style_id);
       }
-    } catch {
-      setMessage("尚未连接到 API，请先启动 FastAPI 服务。");
-      setFeedback({ tone: "error", text: "API 未连接，请确认本地服务已启动。" });
+    } catch (error) {
+      console.warn("JudgeWrite initialization skipped transient API failure.", error);
     }
   }
 
